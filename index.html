@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Docker Web Application</title>
+</head>
+
+<body>
+    <script src="myscript.js"></script>
+    <h1 id="header" class="center">Welcome To Docker Web Application</h1>
+    <div class="center" id="DockerCommadInputs">
+        <table class="center">
+            <tr class="TableRow">
+                <td class="RowDescribe">Do you want to go with management commands ?</td>
+                <td><input type="radio" id="choiceYES" name="choice" value="Yes" checked
+                        onclick="managementChoice('choiceYES');">
+                    <label for="Yes">Yes</label>
+                    <input type="radio" id="choiceNO" name="choice" value="No" onclick="managementChoice('choiceNO');">
+                    <label for="No">No</label><br>
+                </td>
+
+            </tr>
+            <tr id="managementCMDs" class="TableRow">
+                <td class="RowDescribe"><label for="managementCMD">Choose a Management Command :</label></td>
+                <td><select name="managementCMD" id="managementCMD" onchange="managementSubCMDsList();">
+                        <option value="container">Container</option>
+                        <option value="image">Image</option>
+                        <option value="volume">Volume</option>
+                        <option value="network">Network</option>
+                    </select></td>
+
+            </tr>
+            <tr id="managementSubCMDs" class="TableRow">
+                <td class="RowDescribe"><label for="SubCMD" id="managementSubCMDsAsk">Choose a Management Sub-Command
+                        :</label></td>
+                <td><select name="managementSubCMDs" id="SubCMD">
+                        <option value="exec">exec</option>
+                        <option value="run">run</option>
+                        <option value="ls">ls</option>
+                    </select></td>
+            </tr>
+            <tr id="CMDs" class="TableRow">
+            </tr>
+            <tr>
+                <td class="RowDescribe"><label for="Options">Command Options :</label></td>
+                <td>
+                    <input type="text" id="Options" name="Options">
+                </td>
+            </tr>
+            <tr class="TableRow">
+                <td><button type="submit" value="Reset"
+                        onclick="document.getElementById('Options').value=null;">Reset</button></td>
+                <td><button type="submit" value="Submit" onclick="dockerOutput();">Submit</button></td>
+            </tr>
+        </table>
+    </div>
+    <pre><b><div class="center" id="OutputWindow">Output will be display Here</div></b></pre>
+</body>
+
+</html>
